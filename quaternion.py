@@ -42,3 +42,4 @@ def quaternion_rotation(vector, point, angle):
 vector_A = np.array([1,1,1], dtype=np.float64)
 vector_B = np.array([2,2,2], dtype=np.float64)
 print("Quaternion rotation function: ", quaternion_rotation(vector_A, vector_B, 180))
+print("Result is no change to point, as lies along vector A")
