@@ -11,10 +11,8 @@ def quaternion_rotation(vector, point, angle):
     vector = np.array(vector, dtype=np.float64)
     point = np.array(point, dtype=np.float64)
     unit_vector = normalise(vector)
-    print("unit vector", unit_vector)
     #convert degrees to radians
     radians = np.deg2rad(angle) # angle * pi / 180
-    print("radians: ",radians)
     #rounding required throughout as np.pi is not truly irrational
     quaternion = np.array([
                         np.round(np.cos(radians/2), decimals=10),             # q_w
@@ -33,8 +31,6 @@ def quaternion_rotation(vector, point, angle):
     Rotation_matrix[1] = np.array([np.round(2*(x*y+w*z), decimals=10), np.round(2*(w*w+y*y)-1, decimals=10), np.round(2*(y*z-w*x), decimals=10)])
     Rotation_matrix[2] = np.array([np.round(2*(x*z-w*y), decimals=10), np.round(2*(y*z+w*x), decimals=10), np.round(2*(w*w+z*z)-1, decimals=10)])
     #rotate p' = Rp
-    print("Quaternion: ", quaternion)
-    print("Rotation matrix:\n", Rotation_matrix)
     rotated_point = np.dot(Rotation_matrix, point)
     return rotated_point
 
